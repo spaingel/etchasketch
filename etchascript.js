@@ -16,6 +16,7 @@ function addGrid(tiles){
     let newGrid = "repeat(" + tiles + ", 1fr)";
     container.style.gridTemplateColumns = newGrid;
     container.style.gridTemplateRows = newGrid;
+    mouseHover();
 }
 
 function clearGrid() { //FUNCIONA!
@@ -40,9 +41,36 @@ function newGrid() {
     }
 }
 
+function mouseHover(){
+
+    let hover = document.querySelectorAll('.grid-item');
+    
+    hover.forEach((griditem) => {
+        griditem.addEventListener('mouseenter', () => {
+        griditem.style.backgroundColor = "blue";  
+        });
+    });
+    }
+
+
 addGrid(16);
 
 let btn = document.querySelector('#butt');
 btn.addEventListener('click',() => {
     newGrid();
 })
+
+
+/*let hoverCells = document.querySelectorAll('.grid.item');
+
+ NAO FUNCIONA?
+function mouseHover(){
+    let h;
+    for (h = 0; h < hoverCells.length; h++){
+        hoverCells[h].style.backgroundColor = "blue";
+    }
+}
+
+hoverCells.addEventListener('mouseover', () => {
+    mouseHover()
+});*/
