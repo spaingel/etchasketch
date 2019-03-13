@@ -4,7 +4,7 @@
     width: 580px;
     height: 580px;
     overflow: hidden;
-    margin: auto;
+    margin-left: 30%;
     display: grid;
     grid-template-columns: repeat(16, 1fr); /*manipular com o DOM*/
     grid-template-rows: repeat(16, 1fr); /*manipular com o DOM*/
@@ -29,3 +29,51 @@ container.style.gridTemplateRows = newGrid;
 #butt, button {
     width: 150px;
     }
+
+#leftwrap {
+    float: left;
+}
+
+#pickwrap div{
+    display: inline-block;
+}
+
+.redpick {
+    width: 30px;
+    height: 30px;
+    background: red;
+    border-radius: 50%;
+}
+
+.bluepick {
+    width: 30px;
+    height: 30px;
+    background: blue;
+    border-radius: 50%;
+}
+.yellowpick {
+    width: 30px;
+    height: 30px;
+    background: yellow;
+    border-radius: 50%;
+}
+.greenpick {
+    width: 30px;
+    height: 30px;
+    background: green;
+    border-radius: 50%;
+}
+
+.blackpick {
+    width: 30px;
+    height: 30px;
+    background: black;
+    border-radius: 50%;
+}
+
+.choosepick {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+}

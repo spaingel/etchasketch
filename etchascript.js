@@ -1,6 +1,7 @@
 const container = document.querySelector("#container");
 let tiles;
 let novaCell;
+let cellColor = 'black'
 
 function addCell(){
     novaCell = document.createElement('div');
@@ -51,7 +52,7 @@ function mouseHover(){
     
     hover.forEach((griditem) => {
         griditem.addEventListener('mouseenter', () => {
-        griditem.style.backgroundColor = "blue";  
+        griditem.style.backgroundColor = cellColor;  
         });
     });
     }
@@ -74,6 +75,37 @@ btn.addEventListener('click',() => {
 let btnclear = document.querySelector('#clear');
 btnclear.addEventListener('click',() => {
     clearCells()
+});
+
+let rp = document.querySelector('.redpick');
+rp.addEventListener('click', () => {
+    cellColor = 'red';
+    let ssell = document.querySelector('.selecolor');
+    ssell.textContent = "Seleccionaste a cor "+ cellColor;
+});
+let bp = document.querySelector('.bluepick');
+bp.addEventListener('click', () => {
+    cellColor = 'blue';
+    let ssell = document.querySelector('.selecolor');
+    ssell.textContent = "Seleccionaste a cor "+ cellColor;
+});
+let yp = document.querySelector('.yellowpick');
+yp.addEventListener('click', () => {
+    cellColor = 'yellow';
+    let ssell = document.querySelector('.selecolor');
+    ssell.textContent = "Seleccionaste a cor "+ cellColor;
+});
+let gp = document.querySelector('.greenpick');
+gp.addEventListener('click', () => {
+    cellColor = 'green';
+    let ssell = document.querySelector('.selecolor');
+    ssell.textContent = "Seleccionaste a cor "+ cellColor;
+});
+let blp = document.querySelector('.blackpick');
+blp.addEventListener('click', () => {
+    cellColor = 'black';
+    let ssell = document.querySelector('.selecolor');
+    ssell.textContent = "Seleccionaste a cor "+ cellColor;
 });
 
 
