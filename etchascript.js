@@ -1,22 +1,48 @@
 const container = document.querySelector("#container");
-container.style.gridTemplateColumns = 'repeat(16, auto)';
-container.style.gridTemplateRows = 'repeat(16, auto)';
-    
-function addTiles(tiles){
-    
+let tiles;
+let novaCell;
+
+function addCell(){
+    novaCell = document.createElement('div');
+    novaCell.setAttribute('class', 'grid-item');
+    container.appendChild(novaCell);
+}
+
+function addGrid(tiles){
     let i;
-    for (i = 0; i < tiles; i++){
-        let griddiv = document.createElement('div');
-        container.appendChild(griddiv);
-        griddiv.setAttribute('class', 'grid-item');
-        griddiv.style.border = '1px solid black';
-        griddiv.style.padding = '20px';
+    for (i = 0; i < tiles*tiles; i++) {
+        addCell();
     }
-    
-   }
-function createGrid(tiles){
-    let c;
-    for (c = 0; c < tiles; c++){
-    addTiles(tiles);
+    let newGrid = "repeat(" + tiles + ", 1fr)";
+    container.style.gridTemplateColumns = newGrid;
+    container.style.gridTemplateRows = newGrid;
+}
+
+function clearGrid() { //FUNCIONA!
+    for (let r = container.childNodes.length - 1; r >=0; r--){
+        container.removeChild(container.childNodes[r])
     }
 }
+
+function newGrid() {
+    tiles = prompt("Qual o novo tamanho da grelha?");
+    if (tiles === null || tiles === "") {
+        alert('ERRO, introduza um número válido');
+        return;
+    }
+    if (!isNaN(tiles)) {
+        clearGrid();
+        addGrid(tiles);
+    }
+    else {
+        alert('ERRO, introduza um número válido');
+
+    }
+}
+
+addGrid(16);
+
+let btn = document.querySelector('#butt');
+btn.addEventListener('click',() => {
+    newGrid();
+})
