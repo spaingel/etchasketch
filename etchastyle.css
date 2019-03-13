@@ -26,10 +26,7 @@ container.style.gridTemplateRows = newGrid;
     padding: 2%;
 }
 
-#butt {
-    text-align: center;
-    margin: 0 auto;
-}
+
 #butt, button {
     width: 150px;
     }

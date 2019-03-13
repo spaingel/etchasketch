@@ -52,6 +52,13 @@ function mouseHover(){
     });
     }
 
+function clearCells(){
+    let clearCell = document.querySelectorAll('.grid-item');
+    clearCell.forEach((ccell) => {
+        ccell.style.backgroundColor = "white";
+    })
+}
+        
 
 addGrid(16);
 
@@ -59,6 +66,11 @@ let btn = document.querySelector('#butt');
 btn.addEventListener('click',() => {
     newGrid();
 })
+
+let btnclear = document.querySelector('#clear');
+btnclear.addEventListener('click',() => {
+    clearCells()
+});
 
 
 /*let hoverCells = document.querySelectorAll('.grid.item');
