@@ -31,6 +31,10 @@ function newGrid() {
         alert('ERRO, introduza um número válido');
         return;
     }
+    if (tiles < 16 || tiles > 120) {
+        alert('INTRODUZ UM NUMERO ENTRE 16 E 120');
+        return;
+    }
     if (!isNaN(tiles)) {
         clearGrid();
         addGrid(tiles);
