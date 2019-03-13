@@ -107,6 +107,17 @@ blp.addEventListener('click', () => {
     let ssell = document.querySelector('.selecolor');
     ssell.textContent = "Seleccionaste a cor "+ cellColor;
 });
+let chp = document.querySelector('.choosepick');
+chp.addEventListener('click', () => {
+    cellColor = "#"+prompt('Insere o HEXADECIMAL (sem o #)');
+    if (cellColor.length == 7) {
+    let ssell = document.querySelector('.selecolor');
+    ssell.textContent = "Seleccionaste a cor "+ cellColor;}
+    else {
+        alert('NÃO É UMA COR VALIDA');
+        return;
+    }
+});
 
 
 /*let hoverCells = document.querySelectorAll('.grid.item');

@@ -76,4 +76,7 @@ container.style.gridTemplateRows = newGrid;
     height: 30px;
     border: 1px solid black;
     border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    margin-bottom: 18px;
 }
