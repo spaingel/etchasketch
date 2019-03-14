@@ -2,6 +2,7 @@ const container = document.querySelector("#container");
 let tiles;
 let novaCell;
 let cellColor = 'black'
+let randomClick = false
 
 function addCell(){
     novaCell = document.createElement('div');
@@ -51,13 +52,29 @@ function newGrid() {
 function mouseHover(){
 
     let hover = document.querySelectorAll('.grid-item');
-    
     hover.forEach((griditem) => {
-        griditem.addEventListener('mouseenter', () => {
-        griditem.style.backgroundColor = cellColor;  
+        griditem.addEventListener('mouseover', () => {
+        if (randomClick == false) {
+        griditem.style.backgroundColor = cellColor;
+        }
+        if (randomClick == true) {
+        cellColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+        griditem.style.backgroundColor = cellColor;    
+        }  
         });
     });
     }
+
+function mouseHoverRandom(){
+    let hoverRandom = document.querySelectorAll('.grid-item');
+    hoverRandom.forEach((griditemXPTO) => {
+        
+        griditemXPTO.addEventListener('mouseover', () => {
+        cellColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+        griditemXPTO.style.backgroundColor = cellColor;  
+        });
+    });
+}
 
 function clearCells(){
     let clearCell = document.querySelectorAll('.grid-item');
@@ -69,6 +86,7 @@ function clearCells(){
 function colorPicker() {
     let ssell = document.querySelector('.selecolor');
     ssell.textContent = "Seleccionaste a cor "+ cellColor;
+    mouseHover();
     }
         
 addGrid(16);
@@ -87,22 +105,27 @@ let pickw = document.querySelectorAll('.cor');
 pickw[0].style.backgroundColor = 'red';
 pickw[0].addEventListener('click', () => {
     cellColor = 'red';
+    randomClick = false;
     colorPicker();});
 pickw[1].style.backgroundColor = 'blue';
 pickw[1].addEventListener('click', () => {
     cellColor = 'blue';
+    randomClick = false;
     colorPicker();});
 pickw[2].style.backgroundColor = 'yellow';
 pickw[2].addEventListener('click', () => {
     cellColor = 'yellow';
+    randomClick = false;
     colorPicker();});
 pickw[3].style.backgroundColor = 'green';
 pickw[3].addEventListener('click', () => {
     cellColor = 'green';
+    randomClick = false;
     colorPicker();});
 pickw[4].style.backgroundColor = 'black';
 pickw[4].addEventListener('click', () => {
     cellColor = 'black';
+    randomClick = false;
     colorPicker();});
 
 let chp = document.querySelector('.choosepick');
@@ -115,4 +138,12 @@ chp.addEventListener('click', () => {
         mouseHover();
         return;
     } 
+});
+
+let rnd = document.querySelector('.randommode');
+rnd.addEventListener('click', () => {
+    randomClick = true
+    let ssell = document.querySelector('.selecolor');
+    ssell.textContent = "WOOOAH DOUBLE RAINBOW"
+    mouseHover();
 });
