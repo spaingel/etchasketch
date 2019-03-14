@@ -64,18 +64,6 @@ function mouseHover(){
         });
     });
     }
-
-function mouseHoverRandom(){
-    let hoverRandom = document.querySelectorAll('.grid-item');
-    hoverRandom.forEach((griditemXPTO) => {
-        
-        griditemXPTO.addEventListener('mouseover', () => {
-        cellColor = '#'+Math.floor(Math.random()*16777215).toString(16);
-        griditemXPTO.style.backgroundColor = cellColor;  
-        });
-    });
-}
-
 function clearCells(){
     let clearCell = document.querySelectorAll('.grid-item');
     clearCell.forEach((ccell) => {
@@ -132,10 +120,10 @@ let chp = document.querySelector('.choosepick');
 chp.addEventListener('click', () => {
     cellColor = "#"+prompt('Insere o HEXADECIMAL (sem o #)');
     if (cellColor.length == 7 || cellColor.length == 4) {
+    randomClick = false;
     colorPicker();}
     else {
         alert('NÃO É UMA COR VALIDA');
-        mouseHover();
         return;
     } 
 });
