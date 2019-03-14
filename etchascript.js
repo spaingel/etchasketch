@@ -27,13 +27,15 @@ function clearGrid() { //FUNCIONA!
 }
 
 function newGrid() {
-    tiles = prompt("Qual o novo tamanho da grelha?");
+    tiles = prompt("Introduz um número entre 16 e 120");
     if (tiles === null || tiles === "") {
         alert('ERRO, introduza um número válido');
+        mouseHover();
         return;
     }
     if (tiles < 16 || tiles > 120) {
-        alert('INTRODUZ UM NUMERO ENTRE 16 E 120');
+        alert('ERRO: Introduz um número entre 16 e 120');
+        mouseHover();
         return;
     }
     if (!isNaN(tiles)) {
@@ -41,7 +43,7 @@ function newGrid() {
         addGrid(tiles);
     }
     else {
-        alert('ERRO, introduza um número válido');
+        alert('ERRO: Introduz um número entre 16 e 120');
 
     }
 }
@@ -63,6 +65,11 @@ function clearCells(){
         ccell.style.backgroundColor = "white";
     })
 }
+
+function colorPicker() {
+    let ssell = document.querySelector('.selecolor');
+    ssell.textContent = "Seleccionaste a cor "+ cellColor;
+    }
         
 
 addGrid(16);
@@ -70,7 +77,7 @@ addGrid(16);
 let btn = document.querySelector('#butt');
 btn.addEventListener('click',() => {
     newGrid();
-})
+});
 
 let btnclear = document.querySelector('#clear');
 btnclear.addEventListener('click',() => {
@@ -80,41 +87,36 @@ btnclear.addEventListener('click',() => {
 let rp = document.querySelector('.redpick');
 rp.addEventListener('click', () => {
     cellColor = 'red';
-    let ssell = document.querySelector('.selecolor');
-    ssell.textContent = "Seleccionaste a cor "+ cellColor;
+    colorPicker();
 });
 let bp = document.querySelector('.bluepick');
 bp.addEventListener('click', () => {
     cellColor = 'blue';
-    let ssell = document.querySelector('.selecolor');
-    ssell.textContent = "Seleccionaste a cor "+ cellColor;
+    colorPicker();
 });
 let yp = document.querySelector('.yellowpick');
 yp.addEventListener('click', () => {
     cellColor = 'yellow';
-    let ssell = document.querySelector('.selecolor');
-    ssell.textContent = "Seleccionaste a cor "+ cellColor;
+    colorPicker();
 });
 let gp = document.querySelector('.greenpick');
 gp.addEventListener('click', () => {
     cellColor = 'green';
-    let ssell = document.querySelector('.selecolor');
-    ssell.textContent = "Seleccionaste a cor "+ cellColor;
+    colorPicker();
 });
 let blp = document.querySelector('.blackpick');
 blp.addEventListener('click', () => {
     cellColor = 'black';
-    let ssell = document.querySelector('.selecolor');
-    ssell.textContent = "Seleccionaste a cor "+ cellColor;
+    lcolorPicker();
 });
 let chp = document.querySelector('.choosepick');
 chp.addEventListener('click', () => {
     cellColor = "#"+prompt('Insere o HEXADECIMAL (sem o #)');
     if (cellColor.length == 7) {
-    let ssell = document.querySelector('.selecolor');
-    ssell.textContent = "Seleccionaste a cor "+ cellColor;}
+    colorPicker();}
     else {
         alert('NÃO É UMA COR VALIDA');
+        mouseHover();
         return;
     }
 });
