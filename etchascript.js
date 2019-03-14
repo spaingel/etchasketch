@@ -20,7 +20,7 @@ function addGrid(tiles){
     mouseHover();
 }
 
-function clearGrid() { //FUNCIONA!
+function clearGrid() { //Estudar melhor a logica disto
     for (let r = container.childNodes.length - 1; r >=0; r--){
         container.removeChild(container.childNodes[r])
     }
@@ -71,7 +71,6 @@ function colorPicker() {
     ssell.textContent = "Seleccionaste a cor "+ cellColor;
     }
         
-
 addGrid(16);
 
 let btn = document.querySelector('#butt');
@@ -84,54 +83,36 @@ btnclear.addEventListener('click',() => {
     clearCells()
 });
 
-let rp = document.querySelector('.redpick');
-rp.addEventListener('click', () => {
+let pickw = document.querySelectorAll('.cor');
+pickw[0].style.backgroundColor = 'red';
+pickw[0].addEventListener('click', () => {
     cellColor = 'red';
-    colorPicker();
-});
-let bp = document.querySelector('.bluepick');
-bp.addEventListener('click', () => {
+    colorPicker();});
+pickw[1].style.backgroundColor = 'blue';
+pickw[1].addEventListener('click', () => {
     cellColor = 'blue';
-    colorPicker();
-});
-let yp = document.querySelector('.yellowpick');
-yp.addEventListener('click', () => {
+    colorPicker();});
+pickw[2].style.backgroundColor = 'yellow';
+pickw[2].addEventListener('click', () => {
     cellColor = 'yellow';
-    colorPicker();
-});
-let gp = document.querySelector('.greenpick');
-gp.addEventListener('click', () => {
+    colorPicker();});
+pickw[3].style.backgroundColor = 'green';
+pickw[3].addEventListener('click', () => {
     cellColor = 'green';
-    colorPicker();
-});
-let blp = document.querySelector('.blackpick');
-blp.addEventListener('click', () => {
+    colorPicker();});
+pickw[4].style.backgroundColor = 'black';
+pickw[4].addEventListener('click', () => {
     cellColor = 'black';
-    lcolorPicker();
-});
+    colorPicker();});
+
 let chp = document.querySelector('.choosepick');
 chp.addEventListener('click', () => {
     cellColor = "#"+prompt('Insere o HEXADECIMAL (sem o #)');
-    if (cellColor.length == 7) {
+    if (cellColor.length == 7 || cellColor.length == 4) {
     colorPicker();}
     else {
         alert('NÃO É UMA COR VALIDA');
         mouseHover();
         return;
-    }
+    } 
 });
-
-
-/*let hoverCells = document.querySelectorAll('.grid.item');
-
- NAO FUNCIONA?
-function mouseHover(){
-    let h;
-    for (h = 0; h < hoverCells.length; h++){
-        hoverCells[h].style.backgroundColor = "blue";
-    }
-}
-
-hoverCells.addEventListener('mouseover', () => {
-    mouseHover()
-});*/
