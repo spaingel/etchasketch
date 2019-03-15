@@ -1,12 +1,19 @@
+body {
+    background-color: #ffd49d;
+}
+
 #container {
-    padding: 5px;
-    width: 580px;
-    height: 580px;
+    width: 480px;
+    height: 480px;
     overflow: hidden;
-    margin-left: 30%;
+    float: left;
     display: grid;
+    margin-left: 30%;
     grid-template-columns: repeat(16, 1fr); /*manipular com o DOM*/
     grid-template-rows: repeat(16, 1fr); /*manipular com o DOM*/
+    position: relative;
+    border: 20px solid rgb(247, 4, 24);
+    background-color: white;
 }
 
 /*manipular com o DOM
@@ -25,40 +32,56 @@ container.style.gridTemplateRows = newGrid;
     padding: 2%;
 }
 
-#butt, button {
-    width: 150px;
-    }
-
-#leftwrap {
+#butt {
     float: left;
 }
 
-#pickwrap div{
+#leftwrap {
+    width: 50%;
     display: inline-block;
+    margin-left: 30%;
+    }
+
+#leftwrap button {
+    width: 100px;
+    }
+
+
+#pickwrap div, p{
+    display: inline-block;
+    font-family: sans-serif;
 }
 
-.cor{
+.selecolor {
+    margin: 2px;
+}
+
+.cor, .eraser img {
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    vertical-align: middle;
+}
+
+.cor:hover, .choosepick:hover, .randommode:hover, .eraser img:hover {
+    border: 1px solid black;
+    opacity: 0.8;
 }
 
 .choosepick {
     width: 30px;
     height: 30px;
-    border: 1px solid black;
+    border: 0.5px dotted black;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
-    margin-bottom: 18px;
 }
 
 .randommode {
     width: 30px;
     height: 30px;
-    border: 1px double rgb(133, 12, 133);
+    background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
-    margin-bottom: 18px;
 }

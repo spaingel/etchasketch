@@ -28,14 +28,14 @@ function clearGrid() { //Estudar melhor a logica disto
 }
 
 function newGrid() {
-    tiles = prompt("Introduz um número entre 16 e 120");
+    tiles = prompt("Introduz um número entre 16 e 96");
     if (tiles === null || tiles === "") {
         alert('ERRO, introduza um número válido');
         mouseHover();
         return;
     }
-    if (tiles < 16 || tiles > 120) {
-        alert('ERRO: Introduz um número entre 16 e 120');
+    if (tiles < 16 || tiles > 96) {
+        alert('ERRO: Introduz um número entre 16 e 96');
         mouseHover();
         return;
     }
@@ -44,7 +44,7 @@ function newGrid() {
         addGrid(tiles);
     }
     else {
-        alert('ERRO: Introduz um número entre 16 e 120');
+        alert('ERRO: Introduz um número entre 16 e 96');
 
     }
 }
@@ -135,3 +135,9 @@ rnd.addEventListener('click', () => {
     ssell.textContent = "WOOOAH DOUBLE RAINBOW"
     mouseHover();
 });
+
+let eras = document.querySelector('.eraser');
+eras.addEventListener('click', () => {
+    cellColor = 'white';
+    randomClick = false;
+    colorPicker();});
